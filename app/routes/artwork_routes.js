@@ -35,7 +35,7 @@ router.post('/artworks/:artistId', removeBlanks, (req, res, next) => {
             console.log('the artist: ', artist)
             console.log('the artwork: ', artwork)
 
-            artist.artwork.push(artwork)
+            artist.artworks.push(artwork)
 
             return artist.save()
         })
