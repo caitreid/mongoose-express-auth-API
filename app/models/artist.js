@@ -1,5 +1,7 @@
 const mongoose = require('mongoose')
 
+const artworkSchema = require('../models/artworks')
+
 const artistSchema = new mongoose.Schema(
 	{
 		name: {
@@ -23,6 +25,7 @@ const artistSchema = new mongoose.Schema(
 			ref: 'User',
 			required: false,
 		},
+		artworks: [artworkSchema]
 	},
 	{
 		timestamps: true,
