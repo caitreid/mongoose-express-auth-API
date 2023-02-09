@@ -44,9 +44,9 @@ router.post('/artworks/:artistId', removeBlanks, (req, res, next) => {
 })
 
 // UPDATE
-// PATCH /pets/5a7db6c74d55bc51bdf39793
+// PATCH /toy/:toyId
 // removeBlanks is middleware that doesn't allow you to overwrite any data with an empty string(or empty value)
-router.patch('/artists/:id', requireToken, removeBlanks, (req, res, next) => {
+router.patch('/artworks/:id', requireToken, removeBlanks, (req, res, next) => {
 	// if the client attempts to change the `owner` property by including a new
 	// owner, prevent that by deleting that key/value pair
 	delete req.body.artist.owner
@@ -69,8 +69,7 @@ router.patch('/artists/:id', requireToken, removeBlanks, (req, res, next) => {
 
 // DESTROY
 // | DELETE | `/artworks/:petId/:artworkId`        | `artworks#delete`   |
-
-router.delete('/artists/:id', requireToken, (req, res, next) => {
+router.delete('/artworks/:id', requireToken, (req, res, next) => {
 	Artist.findById(artistId)
 		.then(handle404)
 		.then((artist) => {
